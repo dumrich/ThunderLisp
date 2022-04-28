@@ -1,7 +1,19 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdint.h>
 
-int main(int argp, char** argv)
+typedef struct {
+  FILE* fp;
+  /* 8 Bit field
+     Opt: t-f
+     NULL
+   */
+  uint8_t par;
+} args;
+
+int main(int argc, char** argv)
 {
-  printf("Hello\n");
+  FILE* 
   return 0;
 }
