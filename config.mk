@@ -1,6 +1,6 @@
 VERSION = 0.1
 
-INSTALL = /usr/local/bin
+INSTALL = /usr/local
 BIN = tl
 
 CC = gcc

@@ -3,19 +3,22 @@
 
 include config.mk
 
-OBJ = tl.o parse.o std.o gen.o
+SRC := $(wildcard src/*.c)
+TLIB := $(wildcard src/std/*.c)
 
-all: ${BIN}
+all: ${BIN} std clean
 
-${BIN}: ${OBJ}
-	${CC} ${CFLAGS} -o $@ ${OBJ}
+${BIN}: ${SRC}
+	${CC} ${CFLAGS} -o $@ ${SRC}
 
-%.o: src/%.c 
-	${CC} ${CFLAGS} -c -o $@ $<
+std: ${TLIB}
+	${CC} ${CFLAGS} -c -fpic ${TLIB}
+	${CC} ${CFLAGS} -shared -o libtlisp.so ${TLIB}
 
-install: ${BIN}
-	mv ${BIN} ${INSTALL}/${BIN}
+install: std ${BIN}
+	cp libtlisp.so ${INSTALL}/lib/
+	cp ${BIN} ${INSTALL}/bin/${BIN}
 
 .PHONY: clean
 clean:
-	rm -rf ${BIN} ${OBJ}
+	rm -rf ${BIN} ${wildcard *.o}
