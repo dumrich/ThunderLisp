@@ -21,4 +21,4 @@ install: std ${BIN}
 
 .PHONY: clean
 clean:
-	rm -rf ${BIN} ${wildcard *.o}
+	rm -rf ${BIN} ${wildcard *.o} libtlisp.so
