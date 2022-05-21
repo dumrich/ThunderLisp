@@ -24,6 +24,6 @@ Todo List:
 - [ ] Arithmetic
 - [ ] Loops
 - [ ] Macros
+- [ ] Stack trace
 - [ ] Use native libc functions
 - [ ] Full standard library
-- [ ] Assembler instructions

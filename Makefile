@@ -6,7 +6,7 @@ include config.mk
 SRC := $(wildcard src/*.c)
 TLIB := $(wildcard src/std/*.c)
 
-all: ${BIN} std clean
+all: ${BIN} std
 
 ${BIN}: ${SRC}
 	${CC} ${CFLAGS} -o $@ ${SRC}
